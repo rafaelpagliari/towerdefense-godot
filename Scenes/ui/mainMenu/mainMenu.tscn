@@ -49,5 +49,10 @@ layout_mode = 2
 size_flags_vertical = 3
 text = "Quit"
 
+[node name="SpeedButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="pressed" from="MenuButtons/VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuButtons/VBoxContainer/quitButton" to="." method="_on_quit_button_pressed"]

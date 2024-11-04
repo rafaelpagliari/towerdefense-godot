@@ -72,4 +72,12 @@ unique_name_in_owner = true
 layout_mode = 2
 horizontal_alignment = 1
 
+[node name="SpeedButton" type="Button" parent="UI/HUD"]
+layout_mode = 0
+offset_left = 1067.0
+offset_top = 273.0
+offset_right = 1151.0
+offset_bottom = 363.0
+text = "Speed"
+
 [connection signal="timeout" from="UI/HUD/WaveWaitTimer" to="UI/HUD" method="_on_wave_wait_timer_timeout"]
