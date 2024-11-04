@@ -115,9 +115,10 @@ const enemies := {
 			"speed": 0.5,
 			"baseDamage": 5.0,
 			"goldYield": 10.0,
-			},
+		},
 		"difficulty": 1.0,
 		"sprite": "res://Assets/enemies/dino1.png",
+		"scale": 1.5  # Tamanho padrão maior
 	},
 	"blueDino": {
 		"stats": {
@@ -125,9 +126,10 @@ const enemies := {
 			"speed": 1.0,
 			"baseDamage": 5.0,
 			"goldYield": 10.0,
-			},
+		},
 		"difficulty": 2.0,
 		"sprite": "res://Assets/enemies/dino2.png",
+		"scale": 1.5
 	},
 	"yellowDino": {
 		"stats": {
@@ -135,21 +137,49 @@ const enemies := {
 			"speed": 2.5,
 			"baseDamage": 1.0,
 			"goldYield": 10.0,
-			},
+		},
 		"difficulty": 3.0,
 		"sprite": "res://Assets/enemies/dino3.png",
+		"scale": 1.5
 	},
 	"greenDino": {
 		"stats": {
 			"hp": 10.0,
-			"speed": 3.5,
+			"speed": 5.0,
 			"baseDamage": 1.0,
 			"goldYield": 10.0,
-			},
+		},
 		"difficulty": 4.0,
 		"sprite": "res://Assets/enemies/dino4.png",
+		"scale": 1.5
+	},
+	# Miniboss (Wave 5)
+	"miniboss": {
+		"stats": {
+			"hp": 500.0,
+			"speed": 0.3,
+			"baseDamage": 20.0,
+			"goldYield": 50.0,
+		},
+		"difficulty": 5.0,
+		"sprite": "res://Assets/enemies/dino3.png",
+		"scale": 5  # Maior que o padrão
+	},
+	# Boss (Wave 10)
+	"boss": {
+		"stats": {
+			"hp": 3000.0,
+			"speed": 0.2,
+			"baseDamage": 50.0,
+			"goldYield": 100.0,
+		},
+		"difficulty": 10.0,
+		"sprite": "res://Assets/enemies/dino4.png",
+		"scale": 10  # Ainda maior que o miniboss
 	}
 }
+
+
 
 const maps := {
 	"map1": {

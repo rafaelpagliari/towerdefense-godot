@@ -20,10 +20,14 @@ var current_wave := 0
 var enemies_spawned_this_wave := 0
 var killed_this_wave := 0
 
-func spawn_new_enemy():
+func spawn_new_enemy(enemy_type = null):
 	var enemyScene := preload("res://Scenes/enemies/enemy_mover.tscn")
 	var enemy = enemyScene.instantiate()
-	enemy.enemy_type = spawnable_enemies.pick_random()
+	
+	if enemy_type:
+		enemy.enemy_type = enemy_type
+	else:
+		enemy.enemy_type = spawnable_enemies.pick_random()
 	
 	# Aplique o multiplicador de vida
 	enemy.hp *= health_multiplier
@@ -49,6 +53,15 @@ func get_spawnable_enemies():
 			enemies.append("blueDino")
 			enemies.append("yellowDino")
 			enemies.append("greenDino")  # Todos os inimigos
+		5:
+			enemies.append("miniboss")
+		6,7,8,9:
+			enemies.append("redDino")
+			enemies.append("blueDino")
+			enemies.append("yellowDino")
+			enemies.append("greenDino")  # Todos os inimigos
+		10:
+			enemies.append("boss")
 		_:
 			# Se o jogo continuar após a 4ª onda, mantenha todos os inimigos
 			enemies.append("redDino")
@@ -79,7 +92,15 @@ func _on_wave_delay_timer_timeout():
 	health_multiplier += 0.5
 
 	current_difficulty = get_current_difficulty()
-	current_wave_spawn_count = round(wave_spawn_count * current_difficulty)
+	
+	if current_wave == 5:
+		current_wave_spawn_count = 5  # Exatamente 5 minibosses
+	elif current_wave == 10:
+		current_wave_spawn_count = 1  # Apenas 1 boss
+	else:
+		current_wave_spawn_count = round(wave_spawn_count * current_difficulty)
+		
+		
 	spawnable_enemies = get_spawnable_enemies()
 	Globals.waveStarted.emit(current_wave, current_wave_spawn_count)
 	$SpawnDelay.start()
